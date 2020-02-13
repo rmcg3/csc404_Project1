@@ -16,7 +16,7 @@ let averages = new Array()
 do{
   getInput()
   doAnother()
-}while(anotherStudent == 'y' || anotherStudent == 'Y')
+}while(anotherStudent == 'y')
 
 //function calls to convert letter grades to decimal grades and get averages
 convertGrades(grades)
@@ -34,6 +34,7 @@ function getInput(){
       (function getGrades(){
         if(letterGrades.indexOf(grade) > -1){
           grade = readline.question("Enter "+name+"'s"+" grade for "+courses[i]+": ")
+          grade = grade.toUpperCase()
           grades.push(grade)
         }else{
           i--
