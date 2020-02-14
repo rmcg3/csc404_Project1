@@ -33,8 +33,16 @@ function getInput(){
     for (var i = 0; i < 4; i++) {
       (function getGrades(){
         if(letterGrades.indexOf(grade) > -1){
-          grade = readline.question("Enter "+name+"'s"+" grade for "+courses[i]+": ")
+          grade = readline.question(`Enter ${name}'s grade for ${courses[i]}:` )
           grade = grade.toUpperCase()
+          if(i == 3){
+            if(letterGrades.indexOf(grade) == -1){
+              grade = 'A'
+              grades.pop()
+              console.log('Invalid input, try again.')
+              getGrades()
+            }
+          }
           grades.push(grade)
         }else{
           i--
@@ -45,7 +53,6 @@ function getInput(){
         }
       })()
     }
-
 }
 
 //function to ask if the user wants to add another student
